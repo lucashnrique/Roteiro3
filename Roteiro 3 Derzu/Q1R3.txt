@@ -1,0 +1,43 @@
+1- Polimorfismo é a capacidade de objetos se comportarem de maneiras diferentes dependendo do ambiente em que sejam submetidos.
+
+#include <iostream>
+
+using std::cout;
+using std::endl;
+
+class Felino {
+public:
+    virtual void FazerRuido()
+    {
+        cout << "..." << endl;
+    }
+    void FazerRuido1()
+    {
+        cout << "..." << endl;
+    }
+};
+
+class Gato : public Felino {
+public:
+    virtual void FazerRuido()
+    {
+        cout << "miau" << endl;
+    }
+    void FazerRuido1()
+    {
+        cout << "miau" << endl;
+    }
+};
+
+int main ()
+{
+    Felino *ptr_felino;
+    Gato gato;
+
+    ptr_felino = &gato;
+    ptr_felino->FazerRuido();
+    ptr_felino->FazerRuido1();
+
+    return 0;
+}
+
